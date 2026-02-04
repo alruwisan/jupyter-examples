@@ -135,6 +135,7 @@ SSH_KEY="${SSH_HOME}/.ssh/id_ed25519"
 if [[ "${DO_INSTALL_PKGS}" -eq 1 ]]; then
   log "Host: installing required packages (iptables, dnsmasq, openssh-client)"
   export DEBIAN_FRONTEND=noninteractive
+  apt-get update -y >/dev/null || true
   apt-get install -y iptables dnsmasq openssh-client >/dev/null
 fi
 
